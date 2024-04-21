@@ -17,6 +17,8 @@ float PoiskVGlubinu(sf::Vector2u, sf::Vector2u) {
 }
 
 int main() {
+    const auto euristicFunc = Euklid;
+
     sf::RenderWindow window(sf::VideoMode(800,800), "Count1");
     window.setFramerateLimit(144);
 
@@ -52,9 +54,9 @@ int main() {
             }
             if (event.type == sf::Event::KeyPressed && !pathIsFound) {
                 if (event.key.code == sf::Keyboard::Enter) {
-                    map.pathFind(Euklid, window);
+                    map.pathFind(euristicFunc, window);
+                    pathIsFound = true;
                 }
-                pathIsFound = true;
             }
         }
 
